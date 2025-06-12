@@ -73,6 +73,7 @@ This project was developed as part of a take-home coding assessment. While the f
 ### 1. Clone and Install Dependencies
 
 ```bash
-git clone https://github.com/your-username/weather_forecast_app.git
-cd weather_forecast_app
-bundle install
+- git clone https://github.com/your-username/weather_forecast_app.git
+- cd weather_forecast_app
+- bundle install
+- rspec for Unit tests
