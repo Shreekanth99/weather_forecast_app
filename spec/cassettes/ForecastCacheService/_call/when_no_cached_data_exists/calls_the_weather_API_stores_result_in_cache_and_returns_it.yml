@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: "<OPENWEATHER_API_URL>/weather?appid=<OPENWEATHER_API_KEY>&lat=17.6936&lon=83.2921&units=metric"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Thu, 12 Jun 2025 10:37:16 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '499'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/weather?lat=17.69&lon=83.29&units=metric"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"coord":{"lon":83.2921,"lat":17.6936},"weather":[{"id":804,"main":"Clouds","description":"overcast
+        clouds","icon":"04d"}],"base":"stations","main":{"temp":30.87,"feels_like":36.39,"temp_min":30.87,"temp_max":30.87,"pressure":1000,"humidity":67,"sea_level":1000,"grnd_level":995},"visibility":10000,"wind":{"speed":3.39,"deg":160,"gust":3.51},"clouds":{"all":99},"dt":1749724636,"sys":{"country":"IN","sunrise":1749685893,"sunset":1749733316},"timezone":19800,"id":1279008,"name":"Alipur","cod":200}'
+  recorded_at: Thu, 12 Jun 2025 10:37:16 GMT
+recorded_with: VCR 6.3.1

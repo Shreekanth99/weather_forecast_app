@@ -1,0 +1,90 @@
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #f7f9fc;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  h1, h2 {
+    text-align: center;
+    color: #333;
+  }
+
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+
+  input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+
+  .forecast-details {
+    margin-top: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .error {
+    color: red;
+    text-align: center;
+  }
+
+  .cache-note {
+    color: green;
+    font-style: italic;
+    text-align: center;
+  }
+</style>
+
+<div class="container">
+  <h1>Weather Forecast</h1>
+
+  <%= form_with url: root_path, method: :get, local: true do |form| %>
+    <%= form.label :address, "Enter Address:" %>
+    <%= form.text_field :address, value: params[:address], required: true %>
+    <%= form.submit "Get Forecast" %>
+  <% end %>
+
+  <% if @error %>
+    <p class="error"><%= @error %></p>
+  <% elsif @forecast %>
+    <div class="forecast-details">
+      <h2>Weather for <%= @forecast[:location] %></h2>
+      <p><strong>Current Temperature:</strong> <%= @forecast[:temperature] %>°C</p>
+      <p><strong>High:</strong> <%= @forecast[:high] %>°C</p>
+      <p><strong>Low:</strong> <%= @forecast[:low] %>°C</p>
+      <p><strong>Condition:</strong> <%= @forecast[:condition].capitalize %></p>
+
+      <% if @from_cache %>
+        <p class="cache-note">(Data loaded from cache)</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
